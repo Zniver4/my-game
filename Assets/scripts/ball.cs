@@ -5,6 +5,7 @@ using UnityEngine;
 public class ball : MonoBehaviour
 {
     [SerializeField] private Vector2 initialvelocity;
+    [SerializeField] private float velocityMultiplayer;
 
     private Rigidbody2D ballRb;
     private bool isballmoving;
@@ -32,6 +33,25 @@ public class ball : MonoBehaviour
         if (collision.gameObject.CompareTag("block")) 
         {
           Destroy(collision.gameObject);
+          ballRb.velocity *= velocityMultiplayer;
+            GameManager.Instance.blockDestroyed();
+        }
+        velocityfix();
+    }
+    private void velocityfix()
+    {
+        float velocitydelta = 0.5f;
+        float minVelocity = 0.2f;
+
+        if (Mathf.Abs(ballRb.velocity.x) < minVelocity)
+        {
+            velocitydelta = Random.value < 0.2f ? velocitydelta : -velocitydelta;
+            ballRb.velocity += new Vector2(velocitydelta, 0f);
+        }
+        if (Mathf.Abs(ballRb.velocity.y) < minVelocity)
+        {
+            velocitydelta = Random.value < 0.3f ? velocitydelta : -velocitydelta;
+            ballRb.velocity += new Vector2(velocitydelta, 0f);
         }
     }
 }
