@@ -750,7 +750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddc0b6ddb1f35d14bbe426b2de273570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialvelocity: {x: 4, y: 6}
+  initialvelocity: {x: 6, y: 6}
   velocityMultiplayer: 1
 --- !u!1 &1263949581
 GameObject:

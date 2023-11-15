@@ -45,7 +45,7 @@ public class ball : MonoBehaviour
 
         if (Mathf.Abs(ballRb.velocity.x) < minVelocity)
         {
-            velocitydelta = Random.value < 0.2f ? velocitydelta : -velocitydelta;
+            velocitydelta = Random.value < 0.1f ? velocitydelta : -velocitydelta;
             ballRb.velocity += new Vector2(velocitydelta, 0f);
         }
         if (Mathf.Abs(ballRb.velocity.y) < minVelocity)
